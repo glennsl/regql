@@ -61,7 +61,7 @@ module Create = (NetworkConfig: NetworkConfig, ContainerConfig: ContainerConfig)
         |> then_(Fetch.Response.json)
         |> then_(
              (value) => {
-               send(esult(decoder(value).data));
+               send(Result(decoder(value).data));
                resolve()
              }
            )
