@@ -24,7 +24,7 @@ module Create = (NetworkConfig: NetworkConfig, ContainerConfig: ContainerConfig)
       | Result(result) => ReasonReact.Update(Loaded(result))
       | Error(error) => ReasonReact.Update(Failed(error))
       },
-    didMount: ({reduce}) => {
+    didMount: ({send}) => {
       let body =
         switch variables {
         | Some(variables) =>
@@ -61,13 +61,13 @@ module Create = (NetworkConfig: NetworkConfig, ContainerConfig: ContainerConfig)
         |> then_(Fetch.Response.json)
         |> then_(
              (value) => {
-               reduce(() => Result(decoder(value).data), ());
+               send(esult(decoder(value).data));
                resolve()
              }
            )
         |> catch(
              (err) => {
-               reduce(() => Error("Regql " ++ errToString(err)), ());
+               send(Error("Regql " ++ errToString(err)));
                resolve()
              }
            )
