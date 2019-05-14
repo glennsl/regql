@@ -72,8 +72,7 @@ module Create = (NetworkConfig: NetworkConfig, ContainerConfig: ContainerConfig)
              }
            )
         |> ignore
-      );
-      ReasonReact.NoUpdate
+      )
     },
     render: ({state}) => children[0](state)
   };
