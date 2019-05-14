@@ -2,6 +2,6 @@
   "name": "regql",
   "sources": "src",
   "refmt": 3,
-  "bs-dependencies": ["reason-react", "bs-fetch", "bs-json"],
+  "bs-dependencies": ["reason-react", "bs-fetch", "@glennsl/bs-json"],
   "bsc-flags": ["-bs-no-version-header"]
 }
